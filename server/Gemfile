@@ -9,7 +9,7 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -63,6 +63,11 @@ group :development do
 end
 
 gem 'rspec-rails', :group => [ :test, :development ]
+
+group :production do
+  gem 'pg'
+end
+
 group :test do
   gem 'guard-rspec'
   gem 'spork'
