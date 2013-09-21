@@ -1,57 +1,31 @@
-Bestmix
+Mitra
 =======
 
-Bestmix is a boilerplate code of iOS app, Android app and Rails-based backend.
-You can use it as a basic structure to build your own mobile app and backend web API integrated with each other.
-They are connected with JSON REST API supporting CRUD, pagination, caching, OAuth2 and Facebook integration.
-
-The sample app is a simple blog engine.
+Mitra is the Sanskrit word for friend. The project helps you find friendly travel guides in all parts of the world.
+The template is based on Bestmix which provides a boiler plate code to connect Rails application based on JSON REST to Android and iOS applications.
 
 Architecture
 ------------
 
-<a href="http://www.flickr.com/photos/14555412@N05/8231876418/" title="bestmix_architecture by masaki.yatsu, on Flickr"><img src="http://farm9.staticflickr.com/8198/8231876418_72de0d577c_z.jpg" width="640" height="508" alt="bestmix_architecture"></a>
-
 Screenshots
 -----------
 
-* [Web App Screenshots](https://github.com/yatsu/bestmix/wiki/Web-App-Screenshots )
-* [Web Admin Screenshots](https://github.com/yatsu/bestmix/wiki/Web-Admin-Screenshots )
-* [iOS App Screenshots](https://github.com/yatsu/bestmix/wiki/iOS-App-Screenshots )
+
 
 Features
 --------
 
 ### Server-Side
 
-* Generating JSON from DB records
-* HTTP caching
-* Basic authentication with Email and passwrod
-* Facebook login
-* Call Facebook API using authorized token
-* OAuth2 authorization for web API
-* API versioning
-* Admin UI
+
 
 ### iOS App
 
-* JSON REST web API integration
-* Getting OAuth2 token and refreshing it behind the scenes
-* Storing authorized token in Keychain
-* Parsing JSON response
-* Importing JSON objects into Core Data as local cache
-* Pagination and incremental loading
-* HTTP caching
-* Checking reachability and display object cache if it is offline
+
 
 ### Android App
 
-_Android app is still under early development._
 
-* JSON REST web API integration using IntentService
-* Getting OAuth2 token and refreshing it behind the scenes
-
-These features are implemented using libraries listed below.
 
 Libraries
 ---------
@@ -200,12 +174,6 @@ See [Gemfile](http://github.com/yatsu/bestmix/blob/master/server/Gemfile ) and
 
 Future Plan
 -----------
-
-* Android app features equivalent to iOS app
-* Image uploading
-* Push notification
-* Twitter integration
-* Testing ...current test codes are not enough.
 
 Contributing to Bestmix
 -----------------------
