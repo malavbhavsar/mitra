@@ -26,6 +26,7 @@ Bestmix::Application.routes.draw do
       resources :posts, :only => [ :index, :show ]
       resources :my_posts, :except => [ :edit ]
       resources :users, :only => [ :show ]
+      resources :servicesapi
     end
   end
 
