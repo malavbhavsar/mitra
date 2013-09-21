@@ -8,15 +8,10 @@ capybara-*.html
 /log/*
 /tmp/*
 /db/*.sqlite3
-/db/schema.rb
 /public/system/*
 /coverage/
 /spec/tmp/*
 **.orig
 rerun.txt
 pickle-email-*.html
-/config/database.yml
-/config/initializers/devise.rb
-/config/initializers/koala.rb
-/config/deploy.rb
 Capfile
