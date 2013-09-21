@@ -6,6 +6,7 @@ The template is based on Bestmix which provides a boiler plate code to connect R
 
 Architecture
 ------------
+Documentation for the project
 
 Screenshots
 -----------
