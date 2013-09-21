@@ -9,10 +9,10 @@ class ServicesController < InheritedResources::Base
   end
 
   def index
-    @services = Service.find_all_by_userid(current_user.id)
+    @services = Service.all
   end
 
-  def all
-    @services = Service.all
+  def user
+    @services = Service.find_all_by_userid(current_user.id)
   end
 end
