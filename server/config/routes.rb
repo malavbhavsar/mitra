@@ -25,8 +25,11 @@ Bestmix::Application.routes.draw do
     api_version(:module => "V1", :path => "/v1") do
       resources :posts, :only => [ :index, :show ]
       resources :my_posts, :except => [ :edit ]
-      resources :users, :only => [ :show ]
+      resources :users#, :only => [ :show ]
+      resources :reviews
+      match 'users/:id/reviews' => 'reviews#reviews_by_user'
       resources :servicesapi
+
 
     end
   end
