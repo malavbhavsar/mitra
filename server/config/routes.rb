@@ -1,4 +1,7 @@
 Bestmix::Application.routes.draw do
+  resources :services
+
+
   get "my_posts/index"
 
   get "my_posts/create"
