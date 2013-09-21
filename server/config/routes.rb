@@ -28,6 +28,8 @@ Bestmix::Application.routes.draw do
       resources :users#, :only => [ :show ]
       resources :reviews
       match 'users/:id/reviews' => 'reviews#user'
+      resources :servicesapi
+
 
     end
   end
