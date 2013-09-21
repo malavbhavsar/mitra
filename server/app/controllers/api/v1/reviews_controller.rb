@@ -24,7 +24,7 @@ class Api::V1::ReviewsController < Api::ApiController
 
   end
 
-  def user
+  def reviews_by_user
 
 
     @reviews = Review.find_by_id(params[:id])

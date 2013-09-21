@@ -27,7 +27,7 @@ Bestmix::Application.routes.draw do
       resources :my_posts, :except => [ :edit ]
       resources :users#, :only => [ :show ]
       resources :reviews
-      match 'users/:id/reviews' => 'reviews#user'
+      match 'users/:id/reviews' => 'reviews#reviews_by_user'
       resources :servicesapi
 
 
