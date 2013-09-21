@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :access_grants, :dependent => :destroy, :class_name => "Doorkeeper::AccessGrant", :foreign_key => "resource_owner_id"
   has_many :access_tokens, :dependent => :destroy, :class_name => "Doorkeeper::AccessToken", :foreign_key => "resource_owner_id"
+  has_many :services, :foreign_key => 'userid'
 
   # validates_presence_of   :email, :if => :email_required?
   # validates_uniqueness_of :email, :allow_blank => true, :if => :email_changed?

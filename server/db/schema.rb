@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120705063956) do
+ActiveRecord::Schema.define(:version => 20130921210116) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -99,6 +99,24 @@ ActiveRecord::Schema.define(:version => 20120705063956) do
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
   add_index "posts", ["title"], :name => "index_posts_on_title"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
+  create_table "services", :force => true do |t|
+    t.string   "picture_url"
+    t.string   "name"
+    t.string   "brief_description"
+    t.string   "long_description"
+    t.string   "userid"
+    t.string   "location"
+    t.integer  "min_ppl"
+    t.integer  "max_ppl"
+    t.decimal  "fee"
+    t.boolean  "all_day"
+    t.boolean  "can_travel"
+    t.datetime "time_from"
+    t.datetime "time_to"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
