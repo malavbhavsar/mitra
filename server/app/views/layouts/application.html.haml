@@ -2,7 +2,7 @@
 %html
   %head
     %meta{ :charset => "utf-8" }
-    %title Bestmix
+    %title Mitra
     = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "bootplus-responsive.css", :media => "all"
     /[if lt IE 9]
@@ -19,7 +19,7 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-          = link_to "Bestmix", "/", :class => "brand"
+          = link_to "Mitra", "/", :class => "brand"
           %ul.nav.pull-right
             - if user_signed_in?
               %li= link_to '@' + current_user.email.sub(/@.*\Z/, ''), "/users/edit"
