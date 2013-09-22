@@ -10,10 +10,9 @@ class Api::V1::ServicesController < Api::ApiController
 
   def index
     @services = Service.all
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @services }
-    end
+
+
+    render json: @services
   end
 
   #TODO: Display the service
