@@ -27,7 +27,7 @@ class Api::V1::ReviewsController < Api::ApiController
   def reviews_by_user
 
 
-    @reviews = Review.find_by_userid(params[:id])
+    @reviews = Review.find_by_user_id(params[:id])
 
     respond_to do |format|
       format.html # index.html.erb

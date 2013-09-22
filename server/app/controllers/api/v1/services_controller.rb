@@ -1,7 +1,7 @@
 class Api::V1::ServicesController < Api::ApiController
  # before_filter :authenticate_user!, :except => [:all]
   def services_by_user
-    @services = Service.find_all_by_userid(params[:id])
+    @services = Service.find_all_by_user_id(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @services }
