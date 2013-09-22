@@ -4,9 +4,9 @@ class UsersController < InheritedResources::Base
     @user = User.find_by_id(params[:id])
     if @user.nil?
       render_error(
-          :resource_not_found,
-          "Not Found",
-          "Requested user does not exist."
+        :resource_not_found,
+        "Not Found",
+        "Requested user does not exist."
       )
       return
     end
