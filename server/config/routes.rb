@@ -1,4 +1,7 @@
 Bestmix::Application.routes.draw do
+
+  match 'xola' => 'services#get_xola'
+
   resources :reviews
   resources :services
   get "my_posts/index"

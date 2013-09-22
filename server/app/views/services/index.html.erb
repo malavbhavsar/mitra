@@ -34,7 +34,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary" %>
+              <%= link_to "Connect", user_path(service.user_id), :class=>"btn btn-primary" %>
               <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
             </div>
           </div>
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="card-bottom">
-          <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary btn-block" %>
+          <%= link_to "Connect", user_path(service.user_id), :class=>"btn btn-primary btn-block" %>
         </div>
       </div>         
       <% end %>
