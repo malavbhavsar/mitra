@@ -28,7 +28,8 @@ Bestmix::Application.routes.draw do
       resources :users#, :only => [ :show ]
       resources :reviews
       match 'users/:id/reviews' => 'reviews#reviews_by_user'
-      resources :servicesapi
+      match 'users/:id/services' => 'services#services_by_user'
+      resources :services
 
 
     end
