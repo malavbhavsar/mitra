@@ -1,42 +1,5 @@
 <h1>Listing services</h1>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Location</th>
-    <th>Min ppl</th>
-    <th>Max ppl</th>
-    <th>Fee</th>
-    <th>All day</th>
-    <th>Can travel</th>
-    <th>Time from</th>
-    <th>Time to</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-  <% @services.each do |service| %>
-      <tr>
-        <td><%= service.name %></td>
-        <td><%= service.picture_url %></td>
-        <td><%= service.brief_description %></td>
-        <td><%= service.long_description %></td>
-        <td><%= service.location %></td>
-        <td><%= service.min_ppl %></td>
-        <td><%= service.max_ppl %></td>
-        <td><%= service.fee %></td>
-        <td><%= service.all_day %></td>
-        <td><%= service.can_travel %></td>
-        <td><%= service.time_from %></td>
-        <td><%= service.time_to %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-</table>
-
-<br />
+<%= render :partial => 'show' %>
 
 <%= link_to 'New Service', new_service_path %>
