@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20130921415141) do
     t.string   "name"
     t.string   "brief_description"
     t.string   "long_description"
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "location"
     t.integer  "min_ppl"
     t.integer  "max_ppl"

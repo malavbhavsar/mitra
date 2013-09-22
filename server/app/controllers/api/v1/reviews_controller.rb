@@ -27,7 +27,7 @@ class Api::V1::ReviewsController < Api::ApiController
   def reviews_by_user
 
 
-    @reviews = Review.find_by_userid(params[:id])
+    @reviews = Review.find_by_user_id(params[:id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,17 +40,17 @@ class Api::V1::ReviewsController < Api::ApiController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
+    @review = Review.new(params[:review])
 
     respond_to do |format|
 
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
+      if @review.save
+        format.html { redirect_to @review , notice: 'Event was successfully created.' }
+        format.json { render json: @review , status: :created, location: @event }
         #redirect_to events_path
       else
         format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: @review .errors, status: :unprocessable_entity }
       end
     end
 

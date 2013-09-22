@@ -1,7 +1,7 @@
 class Api::V1::ServicesController < Api::ApiController
  # before_filter :authenticate_user!, :except => [:all]
   def services_by_user
-    @services = Service.find_all_by_userid(params[:id])
+    @services = Service.find_all_by_user_id(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @services }
@@ -26,8 +26,6 @@ class Api::V1::ServicesController < Api::ApiController
   end
 
   def new
-    p "params being pritned in new"
-    logger.info "params being pritned in new"
     @service = Service.new
     respond_to do |format|
       format.html # new.html.erb
@@ -38,12 +36,6 @@ class Api::V1::ServicesController < Api::ApiController
 
 
   def create
-    p "params being pritned"
-    logger.info "params being pritned w"
-    logger.info params
-    logger.info "params for service"
-    logger.info params[:service]
-    logger.info "params end"
     @service = Service.new(params[:service])
     respond_to do |format|
 
