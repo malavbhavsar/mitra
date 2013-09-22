@@ -1,9 +1,10 @@
 <div class="row">
   <div class="span12">
     <div class="card hovercard">
-      <img src="http://placehold.it/1170x175" alt=""/>
+      <!-- @user.big_picture_url  -->
+      <%= image_tag "http://pcdn.500px.net/40800510/ac37a5ca5d2e2540ef9412c757f5db8eb29f5a40/5.jpg" %>
       <div class="avatar">
-        <img src="http://placehold.it/100x100" alt="" />
+        <%= image_tag @user.picture_url %>
       </div>
       <div class="info">
         <div class="title">
