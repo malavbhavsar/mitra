@@ -20,6 +20,9 @@
               %span.icon-bar
               %span.icon-bar
           = link_to "Mitra", services_path, :class => "brand"
+          %form.navbar-search.pull-left{:action=>""}
+            %input.input-xxlarge.search-query{:type=>"text", :placeholder=>"Search"}
+
           %ul.nav.pull-right
             - if user_signed_in?
               %li= link_to '@' + current_user.email.sub(/@.*\Z/, ''), services_by_user_path(current_user)
