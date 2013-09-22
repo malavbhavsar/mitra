@@ -2,7 +2,7 @@ require 'open-uri'
 class ServicesController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:all]
 
-  before_filter :get_xola , :only => [:index]
+  #before_filter :get_xola , :only => [:index]
 
   def get_xola
     @search = Service.search(params[:search])
