@@ -19,25 +19,13 @@
           Interested in: Hiking, Art
         <div class="desc">
           <div class="rating">
-              <span>
-                <i class="icon-star icon-3"></i>
-                <i class="icon-star icon-3"></i>
-                <i class="icon-star icon-3"></i>
-                <i class="icon-star icon-3"></i>
-                <i class="icon-star icon-3"></i>
-              </span>
+              <%= star(@user.service_rating) %>
             <span> Guide</span>
           </div>
         </div>
         <div class="desc">
           <div class="rating">
-              <span>
-                <i class="icon-star icon-3"></i>
-                <i class="icon-star icon-3"></i>
-                <i class="icon-star icon-3"></i>
-                <i class="icon-star icon-3"></i>
-                <i class="icon-star icon-3"></i>
-              </span>
+              <%= star(5) %>
             <span> Tourist</span>
           </div>
         </div>
