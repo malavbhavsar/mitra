@@ -34,7 +34,11 @@
               </div>
             </div>
             <div class="modal-footer">
-              <%= link_to "Connect", user_path(service.user_id), :class=>"btn btn-primary" %>
+              <% if service.user_id == 0 %>
+                <a href="#myModal" data-toggle="modal" class="btn btn-primary">Connect</a>
+              <% else %>
+                <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary" %>
+              <% end %>               
               <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
             </div>
           </div>
@@ -50,10 +54,26 @@
           </div>
         </div>
         <div class="card-bottom">
-          <%= link_to "Connect", user_path(service.user_id), :class=>"btn btn-primary btn-block" %>
+          <% if service.user_id == 0 %>
+            <a href="#myModal" data-toggle="modal" class="btn btn-primary btn-block">Connect</a>
+          <% else %>
+            <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary btn-block" %>
+          <% end %> 
         </div>
       </div>         
       <% end %>
+      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Xola experience</h3>
+        </div>
+        <div class="modal-body">
+          <p>We are working with xola to make experiences accessible publicly...</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
