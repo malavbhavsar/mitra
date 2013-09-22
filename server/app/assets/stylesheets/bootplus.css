@@ -6814,7 +6814,6 @@ input.search-query {
 
 .card.hovercard {
   position: relative;
-  width: 240px;
   padding-top: 0;
   overflow: hidden;
   text-align: center;
@@ -6822,21 +6821,20 @@ input.search-query {
 }
 
 .card.hovercard img {
-  width: 240px;
-  height: 135px;
+  height: 175px;
 }
 
 .card.hovercard .avatar {
   position: relative;
-  top: -40px;
-  margin-bottom: -40px;
+  top: -50px;
+  margin-bottom: -50px;
 }
 
 .card.hovercard .avatar img {
-  width: 80px;
-  height: 80px;
-  max-width: 80px;
-  max-height: 80px;
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
