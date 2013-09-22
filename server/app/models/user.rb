@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   attr_accessible :provider, :uid
-  attr_accessible :phone, :description, :customer_rating, :service_rating, :tag, :location
+  attr_accessible :phone, :description, :customer_rating, :service_rating, :tag, :location, :big_picture_url
 
 
 

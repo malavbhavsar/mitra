@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130921415142) do
+ActiveRecord::Schema.define(:version => 20130921415144) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20130921415142) do
     t.string   "name"
     t.string   "brief_description"
     t.string   "long_description"
-    t.integer  "user_id"
+    t.string   "user_id"
     t.string   "location"
     t.integer  "min_ppl"
     t.integer  "max_ppl"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(:version => 20130921415142) do
     t.string   "service_rating"
     t.string   "tag"
     t.string   "location"
+    t.string   "big_picture_url"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

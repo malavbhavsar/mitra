@@ -9,7 +9,11 @@ class ServicesController < InheritedResources::Base
   end
 
   def index
-    @services = Service.all
+
+    @search = Service.search(params[:search])
+    @services = @search.all   # load all matching records
+    #@services = Service.all
+
   end
 
   def services_by_user
