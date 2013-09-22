@@ -15,12 +15,40 @@
 
         <div class="card people">
           <div class="card-top">
-            <a href="#">
-               <img src="http://placehold.it/170x150" alt=""/>
+            <a href="#modal_<%=service.id.to_s%>" data-toggle="modal">
+               <img src="<%= service.picture_url %>" alt=""/>
             </a>
           </div>
           <div class="card-info">
-            <%= link_to service.name, '#', :class=>'title' %>
+            <!-- Modal -->
+            <div id="modal_<%=service.id.to_s%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel"><%= service.name %></h3>
+              </div>
+              <div class="modal-body">
+                Description
+                <hr>
+                <div>
+                  <%= service.brief_description %>
+                </div>
+                <div>
+                  <%= service.long_description %>
+                </div>
+                <br>
+                <div>
+                  Location: <%= service.location%>
+                </div>
+                <div>
+                  Fee: $<%= service.fee%>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary" %>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+              </div>
+            </div>
+            <a href="#modal_<%=service.id.to_s%>" data-toggle="modal" class="title"> <%=service.name%></a>
             <div class="desc">
               <%= service.brief_description %>
               <div class="text-center">
@@ -32,9 +60,9 @@
             </div>
           </div>
           <div class="card-bottom">
-            <button class="btn btn-block">Connect</button>
+            <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary btn-block" %>
           </div>
-        </div>
+        </div>         
         <% end %>
     </div>
     </div>
