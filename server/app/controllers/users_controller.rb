@@ -2,16 +2,18 @@ class UsersController < InheritedResources::Base
 
   def show
     @user = User.find_by_id(params[:id])
+    @review = Review.new
 
-    @services = Service.find_all_by_user_id(current_user.id)
-    @reviews = Review.where(:customerreview => true).find_all_by_user_id(current_user.id)
-
-
+    @services = Service.find_all_by_user_id(params[:id])
+    @reviews = Review.where(:customerreview => true).find_all_by_user_id(params[:id])
+    @reviews.sort! { |a,b| b[:created_at] <=> a[:created_at] }
 
     @rating_sum = 0
 
     @reviews.each do |review|
-      @rating_sum = @rating_sum + review.rating
+      if !review.rating.nil?
+        @rating_sum = @rating_sum + review.rating
+      end
     end
 
 
