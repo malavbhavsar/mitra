@@ -47,7 +47,7 @@
           </div>
           <a href="#modal_<%=service.id.to_s%>" data-toggle="modal" class="title"> <%=service.name%></a>
           <div class="desc">
-            <%= service.brief_description %>
+            <%= truncate(service.brief_description, :length=>30) %>
             <div class="text-center">
               <%= service.location %>
             </div>
