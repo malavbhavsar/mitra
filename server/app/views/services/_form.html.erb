@@ -32,7 +32,7 @@
   <div class="control-group">
     <%= f.label :long_description, :class=>"control-label" %>
     <div class="controls">
-    <%= f.text_field :long_description %>
+    <%= f.text_area :long_description, :rows => 3 %>
     </div>
   </div>
   <div class="control-group">
@@ -46,10 +46,16 @@
     <div class="controls">
     <%= f.text_field :fee %>
     </div>
+    <div class="control-group">
+      <%= f.label :zip_code, :class=>"control-label" %>
+      <div class="controls">
+        <%= f.text_field :zip_code %>
+    </div>
+
   </div>
   <div class="control-group">
     <div class="controls">
-    <%= f.submit %>
+      <button type="submit" class="btn">Submit</button>
     </div>
   </div>
 <% end %>
