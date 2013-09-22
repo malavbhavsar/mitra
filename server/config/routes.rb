@@ -37,6 +37,9 @@ Bestmix::Application.routes.draw do
 
   resources :posts
   resources :my_posts
+  resources :users
+  match 'users/:id/reviews' => 'reviews#reviews_by_user'
+  match 'users/:id/services' => 'services#services_by_user'
 
   root :to => 'main#index'
 
