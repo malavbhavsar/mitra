@@ -5,6 +5,7 @@ class ServicesController < InheritedResources::Base
   before_filter :get_xola , :only => [:index]
 
   def get_xola
+    @search = Service.search(params[:search])
     @xola_services = Service.find_all_by_user_id(0)
     @xola_services.each do |xola|
       xola.delete
@@ -51,16 +52,15 @@ class ServicesController < InheritedResources::Base
   end
 
   def index
-    @services = Service.all
-  end
 
-  def fetch_xola_experiences
-    @experiences = File.read(File.dirname($0) + '/experiences.json')
-    @response = ActiveSupport::JSON.decode(@experiences)
+    @search = Service.search(params[:search])
+    @services = @search.all   # load all matching records
+    #@services = Service.all
 
   end
 
   def services_by_user
+    @search = Service.search(params[:search])
     @services = Service.find_all_by_user_id(current_user.id)
   end
 end

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   attr_accessible :provider, :uid
-  attr_accessible :phone, :description, :customer_rating, :service_rating, :tag, :location
+  attr_accessible :phone, :description, :customer_rating, :service_rating, :tag, :location, :big_picture_url
 
 
 
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   has_many :access_grants, :dependent => :destroy, :class_name => "Doorkeeper::AccessGrant", :foreign_key => "resource_owner_id"
   has_many :access_tokens, :dependent => :destroy, :class_name => "Doorkeeper::AccessToken", :foreign_key => "resource_owner_id"
-  has_many :services, :foreign_key => 'user_id'
+  has_many :services
 
   # validates_presence_of   :email, :if => :email_required?
   # validates_uniqueness_of :email, :allow_blank => true, :if => :email_changed?
