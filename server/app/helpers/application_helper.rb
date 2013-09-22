@@ -1,7 +1,11 @@
 module ApplicationHelper
   def star(number)
-    ("<span>" +
-    number.times {"<i class='icon-star icon-3'></i>"} +
-    "</span>").html_safe
+    z=''
+    (number.to_i).times do
+      puts "done"
+      z+="<i class='icon-star icon-3'></i>"
+    end
+    puts z
+    ("<span>" + z +"</span>").html_safe
   end
 end
