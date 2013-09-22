@@ -27,7 +27,7 @@ class ServicesController < InheritedResources::Base
         @xola_service.latitude = @responses['data'][i]['geo']['lat']
         @xola_service.longitude = @responses['data'][i]['geo']['lng']
       end
-      @xola_service.latitude = @responses['data'][i]['geo']['lng']
+     # @xola_service.latitude = @responses['data'][i]['geo']['lng']
       if(defined?(@responses['data'][i]['group']['min']))
         @xola_service.min_ppl = @responses['data'][i]['group']['max']
         @xola_service.max_ppl = @responses['data'][i]['group']['min']
@@ -52,6 +52,11 @@ class ServicesController < InheritedResources::Base
   def new
     @service = Service.new
 
+
+
+
+
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @service }
@@ -60,6 +65,24 @@ class ServicesController < InheritedResources::Base
 
   def create
     @service = current_user.services.build(params[:service])
+
+
+    conn = Faraday.new(:url => 'http://dev.virtualearth.net') do |faraday|
+      faraday.request  :url_encoded             # form-encode POST params
+      faraday.response :logger                  # log requests to STDOUT
+      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    end
+
+
+    response=conn.get '/REST/v1/Locations', { :CountryRegion => 'US', :postalCode => @service.zip_code, :key =>"AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf" }   # GET /nigiri?name=Maguro
+    response = ActiveSupport::JSON.decode(response.body)
+
+
+    @latitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][0]
+    @longitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][1]
+
+    @service.latitude=@latitude
+    @service.longitude=@longitude
 
     respond_to do |format|
       if @service.save
@@ -96,18 +119,23 @@ class ServicesController < InheritedResources::Base
       @latitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][0]
       @longitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][1]
 
-      #p  @latitude
-      #p  @longitude
 
       #puts distance response['resourceSets'][0]['resources'][0]['point']['coordinates'],[42.81010818481445, -73.9510726928711]
       #puts distance [46.3625, 15.114444],[46.055556, 14.508333]
       @services = Service.all
-
+      p "xxxxxxxxx"
       (0..@services.count-1).each do |i|
-        @services[i].distance= distance response['resourceSets'][0]['resources'][0]['point']['coordinates'],[@services[i].latitude, @services[i].longitude]
 
+        @services[i].distance= distance response['resourceSets'][0]['resources'][0]['point']['coordinates'],[@services[i].latitude, @services[i].longitude]
       end
 
+
+      @services.sort_by! &:distance
+
+      (0..@services.count-1).each do |i|
+
+        p @services[i].distance
+      end
     end
       # http://dev.virtualearth.net/Locations?CountryRegion=US&postalCode=12345&key=AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf
       #http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&postalCode=94043&key=AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf
@@ -133,7 +161,7 @@ class ServicesController < InheritedResources::Base
     a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
     c = 2 * Math.asin(Math.sqrt(a))
 
-    rm * c * 0.621371 # Delta in miles
+    rm * c * 0.000621371 # Delta in miles
   end
 
 end
