@@ -21,6 +21,5 @@ class MyPostsController < InheritedResources::Base
 
   def collection
     @posts ||= end_of_association_chain.order("updated_at DESC")
-    # @posts ||= end_of_association_chain.page((params[:page] || 1).to_i)
   end
 end
