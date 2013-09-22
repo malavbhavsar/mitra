@@ -12,74 +12,33 @@
  *= require bootplus
 */
 
+@import "font-awesome";
+
 body {
   padding-top: 60px;
 }
 
-.inline_block {
-  display: inline-block;
+#img_container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+    /* background:url('http://jsfiddle.net/img/initializing.png') no-repeat;
+    width:186px;
+    height:157px;*/
 }
 
-table td {
-  vertical-align: middle;
+.button {
+    position:absolute;
+    bottom:40px;
+    right:10px;
+    width:100px;
+    height:30px;
 }
 
-.post {
-  margin-bottom: 10px;
-  .content {
-    margin: 5px 0;
-  }
-  .published {
-    color: #888888;
-    span {
-      margin-right: 10px;
-    }
-  }
-}
-
-.my-post {
-  .title {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  .published {
-    color: #aaa;
-    margin: 5px 0;
-  }
-
-  .tasks {
-    a {
-      margin-right: 5px;
-      // color: transparent;
-    }
-  }
-}
-
-// .my-post tr:hover {
-//   .tasks a {
-//     color: #0088cc;
-//   }
-// }
-
-.error input {
-  color: #B94A48;
-  border-color: #EE5F5B;
-}
-
-.error .help-inline {
-  color: #B94A48;
-}
-
-.page-header {
-  margin: 0 0 10px 0 !important;
-  padding-bottom: 5px !important;
-}
-
-h2 + table,
-h3 + table,
-h4 + table,
-h2 + .row {
-  margin-top: 5px;
+.button1 {
+    position:absolute;
+    bottom:75px;
+    right:10px;
+    width:100px;
+    height:30px;
 }

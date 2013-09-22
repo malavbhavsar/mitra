@@ -1,15 +1,15 @@
 Bestmix::Application.routes.draw do
+
+  match 'xola' => 'services#get_xola'
+
   resources :reviews
-
-
-  resources :services
-
-
+  resources :services, :only=> [:new, :index, :create]
   get "my_posts/index"
 
   get "my_posts/create"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  resources :users, :only=> [:show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -19,20 +19,21 @@ Bestmix::Application.routes.draw do
   # accept get method to support scribe-java
   get 'oauth/token' => 'doorkeeper/tokens#create'
 
-  devise_for :users
-
   namespace :api do
     api_version(:module => "V1", :path => "/v1") do
       resources :posts, :only => [ :index, :show ]
       resources :my_posts, :except => [ :edit ]
-      resources :users, :only => [ :show ]
+      resources :users#, :only => [ :show ]
+      resources :reviews
+      match 'users/:id/reviews' => 'reviews#reviews_by_user', :as => :reviews_by_user
+      match 'users/:id/services' => 'services#services_by_user', :as => :services_by_user
+      match 'services/by_location/:latitude/:longitude' => 'services#by_location'
+
+      resources :services
     end
   end
-
-  resources :posts
-  resources :my_posts
-
   root :to => 'main#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -90,4 +91,9 @@ Bestmix::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+  match 'users/:id/reviews' => 'reviews#reviews_by_user', :as => :reviews_by_user
+  match 'users/:id/services' => 'services#services_by_user', :as => :services_by_user
+  resources :my_posts
+  match 'users/:id/reviews' => 'reviews#reviews_by_user'
+  match 'users/:id/services' => 'services#services_by_user'
 end

@@ -1,42 +1,82 @@
-<h1>Listing services</h1>
+<div class="container">
+  <div class="row">
+      <div class="span12">
+      <% @services.each do |service| %>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Location</th>
-    <th>Min ppl</th>
-    <th>Max ppl</th>
-    <th>Fee</th>
-    <th>All day</th>
-    <th>Can travel</th>
-    <th>Time from</th>
-    <th>Time to</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @services.each do |service| %>
-  <tr>
-    <td><%= service.name %></td>
-    <td><%= service.picture_url %></td>
-    <td><%= service.brief_description %></td>
-    <td><%= service.long_description %></td>
-    <td><%= service.location %></td>
-    <td><%= service.min_ppl %></td>
-    <td><%= service.max_ppl %></td>
-    <td><%= service.fee %></td>
-    <td><%= service.all_day %></td>
-    <td><%= service.can_travel %></td>
-    <td><%= service.time_from %></td>
-    <td><%= service.time_to %></td>
-    <td><%= link_to 'Show', service %></td>
-    <td><%= link_to 'Edit', edit_service_path(service) %></td>
-    <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Service', new_service_path %>
+      <div class="card people">
+        <div class="card-top">
+          <a href="#modal_<%=service.id.to_s%>" data-toggle="modal">
+             <img src="<%= service.picture_url %>" alt=""/>
+          </a>
+        </div>
+        <div class="card-info">
+          <!-- Modal -->
+          <div id="modal_<%=service.id.to_s%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 id="myModalLabel"><%= service.name %></h3>
+            </div>
+            <div class="modal-body">
+              Description
+              <hr>
+              <div>
+                <%= service.brief_description %>
+              </div>
+              <div>
+                <%= service.long_description %>
+              </div>
+              <br>
+              <div>
+                Location: <%= service.location%>
+              </div>
+              <div>
+                Zip code: <%= service.zip_code%>
+              </div>
+              <div>
+                Fee: $<%= service.fee%>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <% if service.user_id == 0 %>
+                <a href="#myModal" data-toggle="modal" class="btn btn-primary">Connect</a>
+              <% else %>
+                <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary" %>
+              <% end %>               
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+          </div>
+          <a href="#modal_<%=service.id.to_s%>" data-toggle="modal" class="title"> <%=service.name%></a>
+          <div class="desc">
+            <%= truncate(service.brief_description, :length=>30) %>
+            <div class="text-center">
+              <%= service.location %>
+            </div>
+            <div class="text-center">
+              <%= service.fee %>$
+            </div>            
+          </div>
+        </div>
+        <div class="card-bottom">
+          <% if service.user_id == 0 %>
+            <a href="#myModal" data-toggle="modal" class="btn btn-primary btn-block">Connect</a>
+          <% else %>
+            <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary btn-block" %>
+          <% end %> 
+        </div>
+      </div>         
+      <% end %>
+      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Xola experience</h3>
+        </div>
+        <div class="modal-body">
+          <p>We are working with xola to make experiences accessible publicly...</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::ApiController
-  doorkeeper_for :all
+  #doorkeeper_for :all
 
   def show
     @user = User.find_by_id(params[:id])
@@ -20,5 +20,18 @@ class Api::V1::UsersController < Api::ApiController
 
     # expires_in 5.seconds
     # fresh_when @user
+
+
+    #
+    render json: @user
+
+  end
+
+
+  def index
+    @users = User.all
+
+    render json: @users
+
   end
 end

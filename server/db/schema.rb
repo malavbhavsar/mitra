@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130921215141) do
+ActiveRecord::Schema.define(:version => 20130922005141) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20130921215141) do
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "reviews", :force => true do |t|
-    t.integer  "userid"
+    t.integer  "user_id"
     t.integer  "reviewerid"
     t.string   "comment"
     t.boolean  "customerreview"
@@ -112,11 +112,11 @@ ActiveRecord::Schema.define(:version => 20130921215141) do
   end
 
   create_table "services", :force => true do |t|
-    t.string   "picture_url"
+    t.string   "picture_url",       :default => "cmu.jpg"
     t.string   "name"
     t.string   "brief_description"
     t.string   "long_description"
-    t.string   "userid"
+    t.integer  "user_id"
     t.string   "location"
     t.integer  "min_ppl"
     t.integer  "max_ppl"
@@ -125,8 +125,12 @@ ActiveRecord::Schema.define(:version => 20130921215141) do
     t.boolean  "can_travel"
     t.datetime "time_from"
     t.datetime "time_to"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.float    "distance"
+    t.integer  "zip_code"
   end
 
   create_table "users", :force => true do |t|
@@ -146,6 +150,14 @@ ActiveRecord::Schema.define(:version => 20130921215141) do
     t.string   "uid"
     t.string   "facebook_token"
     t.datetime "facebook_expires_at"
+    t.string   "phone"
+    t.string   "description"
+    t.string   "customer_rating"
+    t.string   "service_rating"
+    t.string   "tag"
+    t.string   "location"
+    t.string   "big_picture_url"
+    t.string   "picture_url"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

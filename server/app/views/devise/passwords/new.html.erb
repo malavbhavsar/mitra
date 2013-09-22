@@ -1,17 +1,21 @@
-<header class="page-header"><h2>Forgot your password?</h2></header>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class=>"well form-horizontal"}) do |f| %>
+  <%= devise_error_messages! %>
+  <legend>Forgot your password?</legend>
 
-<div class="row">
-  <div class="span12">
-    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "well" }) do |f| %>
-      <%= devise_error_messages! %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-
-      <br/>
-      <button type="submit" class="btn btn-primary">Send me reset password instructions</button>
-    <% end %>
-
-    <%= render "links" %>
+  <div class="control-group">
+    <%= f.label :email, :class=>"control-label" %>
+    <div class="controls">
+        <%= f.email_field :email %>
+    </div>
   </div>
-</div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Send me reset password instructions", :class=>"btn btn-primary" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+<% end %>

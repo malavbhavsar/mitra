@@ -1,0 +1,219 @@
+<div class="row">
+  <div class="span12">
+    <div class="card hovercard">
+      <!-- @user.big_picture_url  -->
+      <div id="img_container">
+        <%= image_tag @user.big_picture_url %>
+          <% if @user == current_user %>
+          <%= link_to "Add Services", new_service_path, :class=>"btn button1" %>
+          <%= link_to "Edit Profile", edit_user_registration_path(current_user), :class=>"btn button" %>
+        <% end %>
+      </div>
+      <div class="avatar">
+        <%= image_tag @user.picture_url %>
+      </div>
+      <div class="info">
+        <div class="title">
+          <%= @user.email.sub(/@.*\Z/, '') %>
+        </div>
+          Interested in: Hiking, Art
+        <div class="desc">
+          <div class="rating">
+              <%= star(@user.service_rating) %>
+            <span> Guide</span>
+          </div>
+        </div>
+        <div class="desc">
+          <div class="rating">
+              <%= star(5) %>
+            <span> Tourist</span>
+          </div>
+        </div>
+        <div class="collapse-group">
+           <div class="collapse">
+           <div>
+            <%= @user.email %>
+           </div>
+           <div>
+           </div>
+            <%= @user.location %>
+           <div>
+           </div>
+            <%= @user.description %>  
+           </div>
+          <p><a id="seemore" href="#">Toggle more &raquo;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="span6">
+    <% @services.each do |service| %>
+    <div class="card people">
+      <div class="card-top">
+        <a href="#modal_<%=service.id.to_s%>" data-toggle="modal">
+           <img src="<%= service.picture_url %>" alt=""/>
+        </a>
+      </div>
+      <div class="card-info">
+        <!-- Modal -->
+        <div id="modal_<%=service.id.to_s%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel"><%= service.name %></h3>
+          </div>
+          <div class="modal-body">
+            Description
+            <hr>
+            <div>
+              <%= service.brief_description %>
+            </div>
+            <div>
+              <%= service.long_description %>
+            </div>
+            <br>
+            <div>
+              Location: <%= service.location%>
+            </div>
+            <div>
+              Fee: $<%= service.fee%>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary" %>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+        <a href="#modal_<%=service.id.to_s%>" data-toggle="modal" class="title"> <%=service.name%></a>
+        <div class="desc">
+            <%= truncate(service.brief_description, :length=>30) %>
+          <div class="text-center">
+            <%= service.location %>
+          </div>
+          <div class="text-center">
+            <%= service.fee %>$
+          </div>            
+        </div>
+      </div>
+      <div class="card-bottom">
+        <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary btn-block" %>
+      </div>
+    </div>         
+    <% end %>
+  </div>
+  <div class="span6">
+    <div class="card">
+     <h3 class="card-heading simple">Review</h3>
+     <div class="card-body">
+
+
+
+
+    <!--  <form>
+        <fieldset>
+          <div>
+          <label>Rating</label>
+          <input type="text" placeholder="Rating">
+          <label>Subject</label>
+          <input type="text" placeholder="Subject">
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </fieldset>
+      </form>
+     -->
+
+
+       <%= form_for(@review) do |f| %>
+           <% if @review.errors.any? %>
+               <div id="error_explanation">
+                 <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+                 <ul>
+                   <% @review.errors.full_messages.each do |msg| %>
+                       <li><%= msg %></li>
+                   <% end %>
+                 </ul>
+               </div>
+           <% end %>
+
+            <%= f.hidden_field :user_id, :value => @user.id %>
+           <%= f.hidden_field :reviewerid, :value => current_user.id %>
+
+           <div class="field">
+             <%= f.label :comment %><br />
+             <%= f.text_field :comment %>
+           </div>
+
+           <div class="field">
+             <%= f.label :rating %><br />
+             <%= f.number_field :rating %>
+           </div>
+
+           <div class="actions">
+             <%= f.submit :Submit, :class => "btn" %>
+           </div>
+       <% end %>
+     </div>
+    </div>
+
+    <% @reviews.each do |review| %>
+
+
+
+
+      <div class="card">
+
+        <div class="card-body">
+          <p>
+            <%= review.comment %>
+
+          </p>
+        </div>
+
+
+        <hr>
+
+          <div class="card-heading image">
+            <img style="position:relative;top:-10px;" src="http://placehold.it/46x46" alt=""/>
+            <div class="card-heading-header">
+              <h3><%= review.user.email.sub(/@.*\Z/, '') %></h3>
+              <span>Published at <%= review.created_at %></span>
+
+            </div>
+            <div style="float:right;height:10px"    id="rating-<%=review.id%>">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <script>
+            for (var i=0;i<<%=review.rating%>;i++)
+            {
+                $('#rating-<%=review.id%>').append("<img src='http://3.bp.blogspot.com/_qH6X1DPrvqk/TAh2Eehj2DI/AAAAAAAAA2A/uTdrVbaME50/s1600/star.png' style='float:right;height:20px;width:20px;' />");
+            }
+
+        </script>
+
+
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
