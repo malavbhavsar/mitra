@@ -1,35 +1,38 @@
-<header class="page-header"><h2>Sign in</h2></header>
-
-<div class="row">
-  <div class="span12">
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "well" }) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <% if devise_mapping.rememberable? -%>
-        <label class="checkbox" for="user_remember_me">
-          <%= f.check_box :remember_me %> Remember me
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html=>{:id=>"new_session", :class=>"well form-horizontal"}) do |f| %>
+    <%= devise_error_messages! %>
+    <legend>Sign in</legend>
+    <div class="control-group">
+      <%= f.label :email, :class=>"control-label" %>
+      <div class="controls">
+        <%= f.email_field :email %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password, :class=>"control-label" %>
+      <div class="controls">
+        <%= f.password_field :password %>
+      </div>
+    </div>
+    <% if devise_mapping.rememberable? %>
+    <div class="control-group">
+      <div class="controls">
+        <label class="checkbox">
+          <%= f.check_box :remember_me%> Remember me
         </label>
-      <% end -%>
-
-      <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+    </div>
     <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="span12">
-      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "btn btn-primary" %>
-  </div>
-</div>
-
-<br/>
-
-<div class="row">
-  <div class="span12">
-    <%= render "links" %>
-  </div>
-</div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "Sign in", :class => "btn btn-primary" %>
+        <br>
+        <br>
+        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+<% end %>
