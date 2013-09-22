@@ -2,7 +2,13 @@
 
 <table>
   <tr>
-    <th>Email</th>
+    <th>name</th>
+    <th>user_id</th>
+
+    <th>picture_url</th>
+    <th>brief_description</th>
+    <th>long_description</th>
+
     <th>Location</th>
     <th>Min ppl</th>
     <th>Max ppl</th>
@@ -19,6 +25,7 @@
 <% @services.each do |service| %>
   <tr>
     <td><%= service.name %></td>
+    <td><%= service.user_id %></td>
     <td><%= service.picture_url %></td>
     <td><%= service.brief_description %></td>
     <td><%= service.long_description %></td>
