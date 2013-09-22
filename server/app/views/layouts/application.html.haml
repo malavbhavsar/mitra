@@ -31,8 +31,8 @@
             .nav-collapse.collapse
               %ul.nav.pull-right
                 %li= link_to "Home", "/"
-                %li= link_to "My Posts", "/my_posts"
-                %li= link_to "My Services", "/services"
+                %li= link_to "My Reviews", reviews_by_user_path(current_user)
+                %li= link_to "My Services", services_by_user_path(current_user)
                 %li= link_to "Apps", "/oauth/authorized_applications"
     .container
       .row

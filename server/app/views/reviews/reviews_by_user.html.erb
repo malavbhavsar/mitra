@@ -1,0 +1,151 @@
+<h1>Listing reviews</h1>
+
+<table>
+  <tr>
+    <th>Userid</th>
+    <th>Reviewerid</th>
+    <th>Comment</th>
+    <th>Customerreview</th>
+    <th>Rating</th>
+    <th>Reviewdate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reviews.each do |review| %>
+  <tr>
+    <td><%= review.user_id %></td>
+    <td><%= review.reviewerid %></td>
+    <td><%= review.comment %></td>
+    <td><%= review.customerreview %></td>
+    <td><%= review.rating %></td>
+    <td><%= review.reviewdate %></td>
+    <td><%= link_to 'Show', review %></td>
+    <td><%= link_to 'Edit', edit_review_path(review) %></td>
+    <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="row">
+  <div class="span12">
+    <div class="card hovercard">
+      <img src="http://placehold.it/1170x175" alt=""/>
+      <div class="avatar">
+          <img src="http://placehold.it/100x100" alt="" />
+      </div>
+      <div class="info">
+          <div class="title">
+             Titolo
+          </div>
+          <div class="desc">
+            <div class="rating">
+              <span>
+                <i class="icon-star icon-3"></i>
+                <i class="icon-star icon-3"></i>
+                <i class="icon-star icon-3"></i>
+                <i class="icon-star icon-3"></i>
+                <i class="icon-star icon-3"></i>
+              </span>
+              <span> Guide</span>
+            </div>
+          </div>
+          <div class="desc">
+            <div class="rating">
+              <span>
+                <i class="icon-star icon-3"></i>
+                <i class="icon-star icon-3"></i>
+                <i class="icon-star icon-3"></i>
+                <i class="icon-star icon-3"></i>
+                <i class="icon-star icon-3"></i>
+              </span>
+              <span> Tourist</span>
+            </div>
+          </div>
+          <div class="desc">
+            Interested in: Hiking, Art
+          </div>
+      </div>
+      <div class="bottom">
+          <button class="btn">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="span6">
+    <div class="card people">
+      <div class="card-top">
+        <a href="#">
+           <img src="http://placehold.it/170x150" alt=""/>
+        </a>
+      </div>
+      <div class="card-info">
+        <a class="title" href="#">Homer Simpson</a>
+        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+      <div class="card-bottom">
+        <button class="btn btn-block">Follow</button>
+      </div>
+    </div>
+    <div class="card people">
+      <div class="card-top">
+        <a href="#">
+           <img src="http://placehold.it/170x150" alt=""/>
+        </a>
+      </div>
+      <div class="card-info">
+        <a class="title" href="#">Homer Simpson</a>
+        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+      <div class="card-bottom">
+        <button class="btn btn-block">Follow</button>
+      </div>
+    </div>
+    <div class="card people">
+      <div class="card-top">
+        <a href="#">
+           <img src="http://placehold.it/170x150" alt=""/>
+        </a>
+      </div>
+      <div class="card-info">
+        <a class="title" href="#">Homer Simpson</a>
+        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+      <div class="card-bottom">
+        <button class="btn btn-block">Follow</button>
+      </div>
+    </div>
+  </div>
+  <div class="span6">
+    <div class="card">
+      <div class="card-heading image">
+        <img src="http://placehold.it/46x46" alt=""/>
+        <div class="card-heading-header">
+           <h3>John Smith</h3>
+           <span>Published today - 08.34 AM</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating">
+          <span>
+            <i class="icon-star icon-3"></i>
+            <i class="icon-star icon-3"></i>
+            <i class="icon-star icon-3"></i>
+            <i class="icon-star icon-3"></i>
+            <i class="icon-star icon-3"></i>
+          </span>
+          <span> Guide</span>
+        </div>
+        <hr>
+        <p>Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review 
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= link_to 'New Review', new_review_path %>
