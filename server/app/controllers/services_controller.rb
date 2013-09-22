@@ -12,8 +12,21 @@ class ServicesController < InheritedResources::Base
       xola.save
     end
 
-    @experiences = File.read(File.dirname($0) + '/experiences.json')
-    @responses = ActiveSupport::JSON.decode(@experiences)
+    #@experiences = File.read(File.dirname($0) + '/experiences.json')
+
+    conn = Faraday.new(:url => 'https://dev.xola.com') do |faraday|
+      faraday.request  :url_encoded             # form-encode POST params
+      faraday.response :logger                  # log requests to STDOUT
+      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    end
+
+
+    response=conn.get '/api/experiences'   # GET /nigiri?name=Maguro
+    @responses = ActiveSupport::JSON.decode(response.body)
+
+
+
+    #@responses = ActiveSupport::JSON.decode(@experiences)
 
     @responses['data'].count.times do |i|
       @xola_service = Service.new
