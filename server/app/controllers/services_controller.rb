@@ -44,15 +44,30 @@ class ServicesController < InheritedResources::Base
     end
   end
 
-  #Currently uses all passed params, user_id not associated
   def new
-    @service = Service.new(params[:service])
-    @service.user_id = current_user.id
-    @service.save
+    @service = Service.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @service }
+    end
+  end
+
+  def create
+    @service = current_user.services.build(params[:service])
+
+    respond_to do |format|
+      if @service.save
+        format.html { redirect_to user_path(@service.user), notice: 'Service was successfully created.' }
+        format.json { redirect_to user_path(@service.user) }
+      else
+        format.html { render action: "new", error: @service.errors }
+        format.json { render json: @service.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def index
-
     @search = Service.search(params[:search])
     @services = @search.all   # load all matching records
     #@services = Service.all

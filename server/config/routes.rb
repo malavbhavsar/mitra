@@ -1,6 +1,6 @@
 Bestmix::Application.routes.draw do
   resources :reviews
-  resources :services
+  resources :services, :only=> [:new, :index, :create]
   get "my_posts/index"
 
   get "my_posts/create"
