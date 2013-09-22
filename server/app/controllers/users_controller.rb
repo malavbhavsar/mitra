@@ -24,6 +24,8 @@ class UsersController < InheritedResources::Base
     @user.update_attribute(:service_rating, @rating)
 
 
+
+
     if @user.nil?
       render_error(
           :resource_not_found,
