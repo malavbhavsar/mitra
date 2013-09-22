@@ -121,8 +121,8 @@ class ServicesController < InheritedResources::Base
       response = ActiveSupport::JSON.decode(response.body)
 
 
-      @latitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][0]
-      @longitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][1]
+      @latitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][0].to_f
+      @longitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][1].to_f
 
      # p  @latitude
       #p  @longitude
@@ -130,8 +130,16 @@ class ServicesController < InheritedResources::Base
       #puts distance [46.3625, 15.114444],[46.055556, 14.508333]
       @services = Service.all
 
-      p "xxxxxxxxx"
+
+      p "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      p @services.count
+
       (0..@services.count-1).each do |i|
+
+        if @services[i].latitude.nil?
+          @services[i].latitude=-58.995311
+          @services[i].longitude=62.171631
+        end
 
 
 
