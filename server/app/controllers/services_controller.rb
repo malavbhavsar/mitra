@@ -23,7 +23,12 @@ class ServicesController < InheritedResources::Base
       @xola_service.long_description =  @responses['data'][i]['desc']
       @xola_service.user_id = 0
       @xola_service.location = @responses['data'][i]['pickupAddress']
-      if(defined?(@responses['data'][i]['group']['max']))
+      if(defined?(@responses['data'][i]['geo']['lng']))
+        @xola_service.latitude = @responses['data'][i]['geo']['lat']
+        @xola_service.longitude = @responses['data'][i]['geo']['lng']
+      end
+      @xola_service.latitude = @responses['data'][i]['geo']['lng']
+      if(defined?(@responses['data'][i]['group']['min']))
         @xola_service.min_ppl = @responses['data'][i]['group']['max']
         @xola_service.max_ppl = @responses['data'][i]['group']['min']
       else
