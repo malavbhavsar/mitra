@@ -1,6 +1,6 @@
 class UsersController < InheritedResources::Base
 
-  def main
+  def show
     @user = User.find_by_id(params[:id])
     if @user.nil?
       render_error(
@@ -16,19 +16,11 @@ class UsersController < InheritedResources::Base
       logger.debug "facebook user: #{hash}"
       @user.facebook_user = FacebookUser.new(hash)
     end
-
-
     @services = Service.find_all_by_user_id(current_user.id)
     @reviews = Review.find_all_by_user_id(current_user.id)
-
-
   end
 
-  def show
-    @user = User.find_by_id(params[:id])
-
-
-
+  def new_review
   end
 
 end

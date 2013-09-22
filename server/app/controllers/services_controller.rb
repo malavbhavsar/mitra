@@ -12,6 +12,7 @@ class ServicesController < InheritedResources::Base
     @services = Service.all
   end
 
+###
   def services_by_user
     @services = Service.find_all_by_user_id(current_user.id)
   end

@@ -25,7 +25,7 @@
 
           %ul.nav.pull-right
             - if user_signed_in?
-              %li= link_to '@' + current_user.email.sub(/@.*\Z/, ''), services_by_user_path(current_user)
+              %li= link_to '@' + current_user.email.sub(/@.*\Z/, ''), user_path(current_user.id)
               %li= link_to "Sign out", "/users/sign_out", :method => :delete
             - else
               %li= link_to "Sign in", "/users/sign_in"
