@@ -24,11 +24,12 @@ Review.create(user_id:2, reviewerid:1, comment: 'I liked the tour and the guide'
 Review.create(user_id:2, reviewerid:6, comment: 'The place was cloudy and we did not see much, but good services', customerreview: false, rating: 4, reviewdate: '2013-02-12')
 Review.create(user_id:4, reviewerid:6, comment: 'We had fun hanging out together', customerreview: false, rating: 4, reviewdate: '2013-02-12')
 
-User.create(:password => '123456',:email=>'test1@mitra.com', :picture_url => 'http://farm3.static.flickr.com/2137/2327330969_f94492cdaf_o.jpg')
-User.create(:password => '123456',:email=>'test2@mitra.com', :picture_url => 'http://www.degreedriven.com/images/topcities/C5NDG1V582P.jpg')
-User.create(:password => '123456',:email=>'test3@mitra.com', :picture_url => 'http://farm3.static.flickr.com/2137/2327330969_f94492cdaf_o.jpg')
-User.create(:password => '123456',:email=>'test4@mitra.com', :picture_url => 'http://s3-media3.ak.yelpcdn.com/bphoto/K62sZJLlcx_Lsz9dxiJZFA/l.jpg')
-User.create(:password => '123456',:email=>'test5@mitra.com', :picture_url => 'http://www.nps.gov/samo/naturescience/images/Zuma-Beach-and-Mountain-View.jpg')
-User.create(:password => '123456',:email=>'test6@mitra.com', :picture_url => 'http://www.photoinpixel.com/mypicture/beautiful-mountain-view.jpg')
+
+User.create(:password => '123456',:email=>'test1@mitra.com', :big_picture_url => 'http://www.degreedriven.com/images/topcities/C5NDG1V582P.jpg', :picture_url => 'http://m.c.lnkd.licdn.com/mpr/pub/image-jQtHEu5LWUrwdQiFoFDBoOVuUumtN1llj9hvVgyyU4CbTKZDjQtvVtqLUBjTT1qsRQSi/malav-bhavsar.jpg', :phone => '111-111-1111', :description => 'I love computer games, hiking national parks', :location=>'San Francisco, CA' )
+User.create(:password => '123456',:email=>'test2@mitra.com', :big_picture_url => 'http://farm3.static.flickr.com/2137/2327330969_f94492cdaf_o.jpg', :picture_url => 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c44.45.551.551/s160x160/10572_10151418473557680_2095604679_n.jpg', :phone => '111-111-1111', :description => 'Outdoor activities, walking around, visiting musuems', :location=>'San Francisco, CA' )
+User.create(:password => '123456',:email=>'test3@mitra.com', :big_picture_url => 'http://farm3.static.flickr.com/2137/2327330969_f94492cdaf_o.jpg', :picture_url => 'http://photos2.meetupstatic.com/photos/member/2/3/2/0/member_99188992.jpeg', :phone => '111-111-1111', :description => 'I like outdoor activities, trekking, hiking, amusement parks', :location=>'Lima, Peru' )
+User.create(:password => '123456',:email=>'test4@mitra.com', :big_picture_url => 'http://s3-media3.ak.yelpcdn.com/bphoto/K62sZJLlcx_Lsz9dxiJZFA/l.jpg', :picture_url => 'https://si0.twimg.com/profile_images/3511204511/b446497ea2775d50ffa19b23fc72105c.jpeg',  :phone => '111-111-1111', :description => 'Adventure sports', :location=>'Mountain View, CA' )
+User.create(:password => '123456',:email=>'test5@mitra.com', :big_picture_url => 'http://www.nps.gov/samo/naturescience/images/Zuma-Beach-and-Mountain-View.jpg', :picture_url => 'https://si0.twimg.com/profile_images/3511204511/b446497ea2775d50ffa19b23fc72105c.jpeg',  :phone => '111-111-1111', :description => 'Adventure sports', :location=>'Mountain View, CA' )
+User.create(:password => '123456',:email=>'test6@mitra.com', :big_picture_url => 'http://www.photoinpixel.com/mypicture/beautiful-mountain-view.jpg', :picture_url => 'https://si0.twimg.com/profile_images/3511204511/b446497ea2775d50ffa19b23fc72105c.jpeg',  :phone => '111-111-1111', :description => 'Adventure sports', :location=>'Mountain View, CA' )
 
 
