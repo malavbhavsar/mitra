@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b>phone:</b>
+  <%= @user.phone %>
+</p>
+
+
+<p>
+  <b>description:</b>
+  <%= @user.description %>
+</p>
+
+
+<p>
+  <b>customer rating:</b>
+  <%= @user.customer_rating %>
+</p>
+
+
+<p>
+  <b>service rating:</b>
+  <%= @user.service_rating %>
+</p>
+
+<p>
+  <b>tag:</b>
+  <%= @user.tag %>
+</p>
+
+<p>
+  <b>location:</b>
+  <%= @user.location %>
+</p>
+
+<p>
+  <b>id:</b>
+  <%= @user.id %>
+</p>
+
+<div class="row">
+  <div class="span12">
+    Unhappy?
+    <%= link_to "edit", edit_user_registration_path(@user) %>.
+  </div>
+</div>
