@@ -144,9 +144,7 @@ class ServicesController < InheritedResources::Base
 
       @services.sort_by! &:distance
 
-      (0..@services.count-1).each do |i|
 
-      end
     end
       # http://dev.virtualearth.net/Locations?CountryRegion=US&postalCode=12345&key=AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf
       #http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&postalCode=94043&key=AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf
