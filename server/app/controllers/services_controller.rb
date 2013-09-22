@@ -1,10 +1,10 @@
 class ServicesController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:all]
 
-  #Currently uses all passed params, userid not associated
+  #Currently uses all passed params, user_id not associated
   def new
     @service = Service.new(params[:service])
-    @service.userid = current_user.id
+    @service.user_id = current_user.id
     @service.save
   end
 

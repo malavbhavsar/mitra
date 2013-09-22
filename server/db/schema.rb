@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20130921415141) do
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "reviews", :force => true do |t|
-    t.integer  "userid"
+    t.integer  "user_id"
     t.integer  "reviewerid"
     t.string   "comment"
     t.boolean  "customerreview"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20130921415141) do
     t.string   "name"
     t.string   "brief_description"
     t.string   "long_description"
-    t.string   "userid"
+    t.string   "user_id"
     t.string   "location"
     t.integer  "min_ppl"
     t.integer  "max_ppl"
@@ -130,28 +130,28 @@ ActiveRecord::Schema.define(:version => 20130921415141) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",                    :default => "", :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                            :null => false
-    t.datetime "updated_at",                                            :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_token"
     t.datetime "facebook_expires_at"
-    t.string   "phone",                  :limit => nil
-    t.string   "description",            :limit => nil
-    t.string   "customer_rating",        :limit => nil
-    t.string   "service_rating",         :limit => nil
-    t.string   "tag",                    :limit => nil
-    t.string   "location",               :limit => nil
+    t.string   "phone"
+    t.string   "description"
+    t.string   "customer_rating"
+    t.string   "service_rating"
+    t.string   "tag"
+    t.string   "location"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
