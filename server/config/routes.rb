@@ -32,7 +32,7 @@ Bestmix::Application.routes.draw do
       resources :services
     end
   end
-
+  match 'users/:id/main' => 'users#main'
   match 'users/:id/reviews' => 'reviews#reviews_by_user', :as => :reviews_by_user
   match 'users/:id/services' => 'services#services_by_user', :as => :services_by_user
   resources :my_posts
