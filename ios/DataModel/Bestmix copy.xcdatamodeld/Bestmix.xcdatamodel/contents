@@ -96,7 +96,7 @@
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES">
-        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="customerreview" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="reviewdate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -108,15 +108,14 @@
         <attribute name="all_day" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="brief_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="can_travel" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="fee" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="long_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="max_ppl" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="min_ppl" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="picture_url" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="serviceID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="time_from" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="time_to" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="userid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -158,8 +157,8 @@
         <element name="FacebookUser" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MyPost" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Post" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Review" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Service" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

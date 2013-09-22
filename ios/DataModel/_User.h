@@ -15,6 +15,8 @@ extern const struct UserRelationships {
 	__unsafe_unretained NSString *facebookUser;
 	__unsafe_unretained NSString *myPosts;
 	__unsafe_unretained NSString *posts;
+	__unsafe_unretained NSString *reviews;
+	__unsafe_unretained NSString *services;
 } UserRelationships;
 
 extern const struct UserFetchedProperties {
@@ -24,6 +26,8 @@ extern const struct UserFetchedProperties {
 @class FacebookUser;
 @class MyPost;
 @class Post;
+@class Review;
+@class Service;
 
 
 
@@ -104,6 +108,20 @@ extern const struct UserFetchedProperties {
 
 
 
+@property (nonatomic, strong) Review *reviews;
+
+//- (BOOL)validateReviews:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) Service *services;
+
+//- (BOOL)validateServices:(id*)value_ error:(NSError**)error_;
+
+
+
+
 
 @end
 
@@ -168,6 +186,16 @@ extern const struct UserFetchedProperties {
 
 - (NSMutableSet*)primitivePosts;
 - (void)setPrimitivePosts:(NSMutableSet*)value;
+
+
+
+- (Review*)primitiveReviews;
+- (void)setPrimitiveReviews:(Review*)value;
+
+
+
+- (Service*)primitiveServices;
+- (void)setPrimitiveServices:(Service*)value;
 
 
 @end

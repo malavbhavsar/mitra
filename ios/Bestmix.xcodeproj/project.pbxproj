@@ -6,6 +6,19 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		250B8CCF17EE8436003E0290 /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 250B8CD217EE8436003E0290 /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		008735F20059421B97C66099 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 828B90085EA242E88A9E748D /* libPods.a */; };
 		1C15500915A54CA6002EF4F6 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C15500815A54CA6002EF4F6 /* UserViewController.m */; };
@@ -49,6 +62,18 @@
 		1CEC7D83159F5AB300517548 /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC7D82159F5AB300517548 /* ReachabilityManager.m */; };
 		1CEC7DA415A04DA700517548 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC7DA115A04DA700517548 /* _User.m */; };
 		1CEC7DA515A04DA700517548 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC7DA315A04DA700517548 /* User.m */; };
+		250B2C2017EED37900D86B32 /* ServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250B2C1F17EED37900D86B32 /* ServicesViewController.m */; };
+		250B2C2317EED5F100D86B32 /* AllServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250B2C2217EED5F100D86B32 /* AllServicesViewController.m */; };
+		250B8CDB17EE859C003E0290 /* _Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 250B8CD417EE859C003E0290 /* _Review.m */; };
+		250B8CDC17EE859C003E0290 /* _Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 250B8CD617EE859C003E0290 /* _Service.m */; };
+		250B8CDD17EE859C003E0290 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 250B8CD817EE859C003E0290 /* Review.m */; };
+		250B8CDE17EE859C003E0290 /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 250B8CDA17EE859C003E0290 /* Service.m */; };
+		250B8CE117EE8DFB003E0290 /* ReviewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250B8CE017EE8DFB003E0290 /* ReviewDetailViewController.m */; };
+		250B8CE417EE98B8003E0290 /* ServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250B8CE317EE98B8003E0290 /* ServiceDetailViewController.m */; };
+		25348BD317EF44C9001D7B87 /* bay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25348BD217EF44C9001D7B87 /* bay.jpg */; };
+		25348BD617EF66CD001D7B87 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 25348BD417EF66CD001D7B87 /* Default~iphone.png */; };
+		25348BD717EF66CD001D7B87 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 25348BD517EF66CD001D7B87 /* Default@2x~iphone.png */; };
+		25F607A817EF247500C97B39 /* service.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25F607A717EF247400C97B39 /* service.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +147,26 @@
 		1CEC7DA115A04DA700517548 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
 		1CEC7DA215A04DA700517548 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		1CEC7DA315A04DA700517548 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		250B2C1E17EED37900D86B32 /* ServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesViewController.h; sourceTree = "<group>"; };
+		250B2C1F17EED37900D86B32 /* ServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesViewController.m; sourceTree = "<group>"; };
+		250B2C2117EED5F100D86B32 /* AllServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllServicesViewController.h; sourceTree = "<group>"; };
+		250B2C2217EED5F100D86B32 /* AllServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllServicesViewController.m; sourceTree = "<group>"; };
+		250B8CD317EE859C003E0290 /* _Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Review.h; sourceTree = "<group>"; };
+		250B8CD417EE859C003E0290 /* _Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Review.m; sourceTree = "<group>"; };
+		250B8CD517EE859C003E0290 /* _Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Service.h; sourceTree = "<group>"; };
+		250B8CD617EE859C003E0290 /* _Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Service.m; sourceTree = "<group>"; };
+		250B8CD717EE859C003E0290 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		250B8CD817EE859C003E0290 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
+		250B8CD917EE859C003E0290 /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
+		250B8CDA17EE859C003E0290 /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
+		250B8CDF17EE8DFB003E0290 /* ReviewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewDetailViewController.h; sourceTree = "<group>"; };
+		250B8CE017EE8DFB003E0290 /* ReviewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewDetailViewController.m; sourceTree = "<group>"; };
+		250B8CE217EE98B8003E0290 /* ServiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceDetailViewController.h; sourceTree = "<group>"; };
+		250B8CE317EE98B8003E0290 /* ServiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceDetailViewController.m; sourceTree = "<group>"; };
+		25348BD217EF44C9001D7B87 /* bay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bay.jpg; sourceTree = "<group>"; };
+		25348BD417EF66CD001D7B87 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		25348BD517EF66CD001D7B87 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
+		25F607A717EF247400C97B39 /* service.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = service.jpg; path = Images/service.jpg; sourceTree = "<group>"; };
 		828B90085EA242E88A9E748D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4A8059D94C425B85738933 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -145,6 +190,10 @@
 		1C7ABC7915775C6700327DEB = {
 			isa = PBXGroup;
 			children = (
+				25348BD417EF66CD001D7B87 /* Default~iphone.png */,
+				25348BD517EF66CD001D7B87 /* Default@2x~iphone.png */,
+				25348BD217EF44C9001D7B87 /* bay.jpg */,
+				25F607A717EF247400C97B39 /* service.jpg */,
 				1C8496A9164CD15100123FDB /* Default-568h@2x.png */,
 				1C8496A7164CD14F00123FDB /* Default@2x.png */,
 				1C8496A4164CD13E00123FDB /* Default.png */,
@@ -188,8 +237,16 @@
 				1CEC7D24159C451500517548 /* EditorViewController.m */,
 				1CEC7D2A159C767F00517548 /* PostDetailViewController.h */,
 				1CEC7D2B159C768000517548 /* PostDetailViewController.m */,
+				250B8CDF17EE8DFB003E0290 /* ReviewDetailViewController.h */,
+				250B8CE017EE8DFB003E0290 /* ReviewDetailViewController.m */,
+				250B8CE217EE98B8003E0290 /* ServiceDetailViewController.h */,
+				250B8CE317EE98B8003E0290 /* ServiceDetailViewController.m */,
 				1C842A6A159B47DD009198C8 /* PostsViewController.h */,
 				1C842A6B159B47DD009198C8 /* PostsViewController.m */,
+				250B2C1E17EED37900D86B32 /* ServicesViewController.h */,
+				250B2C1F17EED37900D86B32 /* ServicesViewController.m */,
+				250B2C2117EED5F100D86B32 /* AllServicesViewController.h */,
+				250B2C2217EED5F100D86B32 /* AllServicesViewController.m */,
 				1C842A6C159B47DD009198C8 /* PrivatePostsViewController.h */,
 				1C842A6D159B47DD009198C8 /* PrivatePostsViewController.m */,
 				1C842A6E159B47DD009198C8 /* PublicPostsViewController.h */,
@@ -243,6 +300,14 @@
 		1CA8E745157A2A2E0062C93F /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				250B8CD317EE859C003E0290 /* _Review.h */,
+				250B8CD417EE859C003E0290 /* _Review.m */,
+				250B8CD517EE859C003E0290 /* _Service.h */,
+				250B8CD617EE859C003E0290 /* _Service.m */,
+				250B8CD717EE859C003E0290 /* Review.h */,
+				250B8CD817EE859C003E0290 /* Review.m */,
+				250B8CD917EE859C003E0290 /* Service.h */,
+				250B8CDA17EE859C003E0290 /* Service.m */,
 				1C15500B15A55783002EF4F6 /* _FacebookPost.h */,
 				1C15500C15A55783002EF4F6 /* _FacebookPost.m */,
 				1C15500F15A55783002EF4F6 /* FacebookPost.h */,
@@ -311,6 +376,7 @@
 			projectRoot = "";
 			targets = (
 				1C7ABC8315775C6700327DEB /* Bestmix */,
+				250B8CCF17EE8436003E0290 /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -321,14 +387,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7ABC9315775C6700327DEB /* InfoPlist.strings in Resources */,
+				25F607A817EF247500C97B39 /* service.jpg in Resources */,
 				1C7ABC9C15775C6700327DEB /* MainStoryboard_iPhone.storyboard in Resources */,
 				1C7ABC9F15775C6700327DEB /* MainStoryboard_iPad.storyboard in Resources */,
 				1C7ABCA415775C6700327DEB /* first.png in Resources */,
 				1C7ABCA615775C6700327DEB /* first@2x.png in Resources */,
+				25348BD617EF66CD001D7B87 /* Default~iphone.png in Resources */,
+				25348BD317EF44C9001D7B87 /* bay.jpg in Resources */,
 				1C7ABCAB15775C6700327DEB /* second.png in Resources */,
 				1C7ABCAD15775C6700327DEB /* second@2x.png in Resources */,
 				1C8496A5164CD13E00123FDB /* Default.png in Resources */,
 				1C8496A8164CD14F00123FDB /* Default@2x.png in Resources */,
+				25348BD717EF66CD001D7B87 /* Default@2x~iphone.png in Resources */,
 				1C8496AA164CD15100123FDB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,32 +443,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7ABC9515775C6700327DEB /* main.m in Sources */,
+				250B8CDB17EE859C003E0290 /* _Review.m in Sources */,
+				250B2C2017EED37900D86B32 /* ServicesViewController.m in Sources */,
 				1C7ABC9915775C6700327DEB /* AppDelegate.m in Sources */,
 				1CA8E748157A2A670062C93F /* Bestmix.xcdatamodeld in Sources */,
 				1C1E506E157C9ADC00D62584 /* NSDictionary+ObjectForKeyOrNil.m in Sources */,
 				1CA74BFB15837C5900DDE84D /* UIColor+Hex.m in Sources */,
 				1CE166E11595835800ED8736 /* UIAlertView+SimpleAlert.m in Sources */,
+				250B8CE417EE98B8003E0290 /* ServiceDetailViewController.m in Sources */,
 				1C842A63159B4729009198C8 /* _Post.m in Sources */,
 				1C842A64159B4729009198C8 /* Post.m in Sources */,
 				1C842A70159B47DD009198C8 /* EditPostViewController.m in Sources */,
 				1C842A72159B47DD009198C8 /* PostsViewController.m in Sources */,
 				1C842A73159B47DD009198C8 /* PrivatePostsViewController.m in Sources */,
+				250B8CDE17EE859C003E0290 /* Service.m in Sources */,
 				1C842A74159B47DD009198C8 /* PublicPostsViewController.m in Sources */,
 				1C842A7F159C25AD009198C8 /* _MyPost.m in Sources */,
+				250B8CDC17EE859C003E0290 /* _Service.m in Sources */,
 				1C842A80159C25AD009198C8 /* MyPost.m in Sources */,
 				1CEC7D25159C451500517548 /* EditorViewController.m in Sources */,
 				1CEC7D2C159C768000517548 /* PostDetailViewController.m in Sources */,
 				1CEC7D75159DD8C700517548 /* AuthManager.m in Sources */,
 				1CEC7D7F159F398A00517548 /* NSDate+LocalTime.m in Sources */,
+				250B2C2317EED5F100D86B32 /* AllServicesViewController.m in Sources */,
 				1CEC7D83159F5AB300517548 /* ReachabilityManager.m in Sources */,
 				1CEC7DA415A04DA700517548 /* _User.m in Sources */,
 				1CEC7DA515A04DA700517548 /* User.m in Sources */,
 				1C15500915A54CA6002EF4F6 /* UserViewController.m in Sources */,
 				1C15501315A55783002EF4F6 /* _FacebookPost.m in Sources */,
 				1C15501415A55783002EF4F6 /* _FacebookUser.m in Sources */,
+				250B8CE117EE8DFB003E0290 /* ReviewDetailViewController.m in Sources */,
 				1C15501515A55783002EF4F6 /* FacebookPost.m in Sources */,
 				1C15501615A55783002EF4F6 /* FacebookUser.m in Sources */,
 				1C15501915A5645F002EF4F6 /* WebApiClient.m in Sources */,
+				250B8CDD17EE859C003E0290 /* Review.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +591,20 @@
 			};
 			name = Release;
 		};
+		250B8CD017EE8436003E0290 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		250B8CD117EE8436003E0290 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -530,6 +622,15 @@
 			buildConfigurations = (
 				1C7ABCB115775C6700327DEB /* Debug */,
 				1C7ABCB215775C6700327DEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		250B8CD217EE8436003E0290 /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				250B8CD017EE8436003E0290 /* Debug */,
+				250B8CD117EE8436003E0290 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
