@@ -71,11 +71,64 @@ class ServicesController < InheritedResources::Base
     @search = Service.search(params[:search])
     @services = @search.all   # load all matching records
     #@services = Service.all
+    #credit_card.match(/[0-9]{16}/).nil
 
+
+    if (!params[:search].nil? and !params[:search][:name_or_location_contains].match(/[0-9][0-9][0-9][0-9][0-9]/).nil? )
+
+
+      conn = Faraday.new(:url => 'http://dev.virtualearth.net') do |faraday|
+        faraday.request  :url_encoded             # form-encode POST params
+        faraday.response :logger                  # log requests to STDOUT
+        faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+      end
+
+
+      response=conn.get '/REST/v1/Locations', { :CountryRegion => 'US', :postalCode => params[:search][:name_or_location_contains], :key =>"AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf" }   # GET /nigiri?name=Maguro
+      response = ActiveSupport::JSON.decode(response.body)
+
+
+      @latitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][0]
+      @longitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][1]
+
+      #p  @latitude
+      #p  @longitude
+
+      #puts distance response['resourceSets'][0]['resources'][0]['point']['coordinates'],[42.81010818481445, -73.9510726928711]
+      #puts distance [46.3625, 15.114444],[46.055556, 14.508333]
+      @services = Service.all
+
+      (0..@services.count-1).each do |i|
+        @services[i].distance= distance response['resourceSets'][0]['resources'][0]['point']['coordinates'],[@services[i].latitude, @services[i].longitude]
+
+      end
+
+    end
+      # http://dev.virtualearth.net/Locations?CountryRegion=US&postalCode=12345&key=AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf
+      #http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&postalCode=94043&key=AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf
   end
 
   def services_by_user
     @search = Service.search(params[:search])
     @services = Service.find_all_by_user_id(current_user.id)
   end
+
+
+  def distance a, b
+    rad_per_deg = Math::PI/180  # PI / 180
+    rkm = 6371                  # Earth radius in kilometers
+    rm = rkm * 1000             # Radius in meters
+
+    dlon_rad = (b[1]-a[1]) * rad_per_deg  # Delta, converted to rad
+    dlat_rad = (b[0]-a[0]) * rad_per_deg
+
+    lat1_rad, lon1_rad = a.map! {|i| i * rad_per_deg }
+    lat2_rad, lon2_rad = b.map! {|i| i * rad_per_deg }
+
+    a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
+    c = 2 * Math.asin(Math.sqrt(a))
+
+    rm * c * 0.621371 # Delta in miles
+  end
+
 end
