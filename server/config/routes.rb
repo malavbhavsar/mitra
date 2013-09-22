@@ -22,12 +22,13 @@ Bestmix::Application.routes.draw do
       resources :my_posts, :except => [ :edit ]
       resources :users#, :only => [ :show ]
       resources :reviews
-      match 'users/:id/reviews' => 'reviews#reviews_by_user'
-      match 'users/:id/services' => 'services#services_by_user'
+      match 'users/:id/reviews' => 'reviews#reviews_by_user', :as => :reviews_by_user
+      match 'users/:id/services' => 'services#services_by_user', :as => :services_by_user
       resources :services
     end
   end
   root :to => 'main#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

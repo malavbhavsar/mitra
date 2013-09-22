@@ -1,14 +1,22 @@
 <div class="row">
   <div class="span12">
     <div class="card hovercard">
-      <img src="http://placehold.it/1170x175" alt=""/>
+      <!-- @user.big_picture_url  -->
+      <div id="img_container">
+        <%= image_tag "http://pcdn.500px.net/40800510/ac37a5ca5d2e2540ef9412c757f5db8eb29f5a40/5.jpg" %>
+          <% if @user == current_user %>
+          <%= link_to "Add Services", new_service_path, :class=>"btn button1" %>
+          <%= link_to "Edit Profile", edit_user_registration_path(current_user), :class=>"btn button" %>
+        <% end %>
+      </div>
       <div class="avatar">
-        <img src="http://placehold.it/100x100" alt="" />
+        <%= image_tag @user.picture_url %>
       </div>
       <div class="info">
         <div class="title">
-          Titolo
+          <%= @user.email.sub(/@.*\Z/, '') %>
         </div>
+          Interested in: Hiking, Art
         <div class="desc">
           <div class="rating">
               <span>
@@ -33,62 +41,82 @@
             <span> Tourist</span>
           </div>
         </div>
-        <div class="desc">
-          Interested in: Hiking, Art
-        </div>
-      </div>
-      <div class="bottom">
-        <button class="btn">Add</button>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="span6">
+    <% @services.each do |service| %>
     <div class="card people">
       <div class="card-top">
-        <a href="#">
-          <img src="http://placehold.it/170x150" alt=""/>
+        <a href="#modal_<%=service.id.to_s%>" data-toggle="modal">
+           <img src="<%= service.picture_url %>" alt=""/>
         </a>
       </div>
       <div class="card-info">
-        <a class="title" href="#">Homer Simpson</a>
-        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        <!-- Modal -->
+        <div id="modal_<%=service.id.to_s%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel"><%= service.name %></h3>
+          </div>
+          <div class="modal-body">
+            Description
+            <hr>
+            <div>
+              <%= service.brief_description %>
+            </div>
+            <div>
+              <%= service.long_description %>
+            </div>
+            <br>
+            <div>
+              Location: <%= service.location%>
+            </div>
+            <div>
+              Fee: $<%= service.fee%>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary" %>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+        <a href="#modal_<%=service.id.to_s%>" data-toggle="modal" class="title"> <%=service.name%></a>
+        <div class="desc">
+          <%= service.brief_description %>
+          <div class="text-center">
+            <%= service.location %>
+          </div>
+          <div class="text-center">
+            <%= service.fee %>$
+          </div>            
+        </div>
       </div>
       <div class="card-bottom">
-        <button class="btn btn-block">Follow</button>
+        <%= link_to "Connect", user_path(service.user.id), :class=>"btn btn-primary btn-block" %>
       </div>
-    </div>
-    <div class="card people">
-      <div class="card-top">
-        <a href="#">
-          <img src="http://placehold.it/170x150" alt=""/>
-        </a>
-      </div>
-      <div class="card-info">
-        <a class="title" href="#">Homer Simpson</a>
-        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-      </div>
-      <div class="card-bottom">
-        <button class="btn btn-block">Follow</button>
-      </div>
-    </div>
-    <div class="card people">
-      <div class="card-top">
-        <a href="#">
-          <img src="http://placehold.it/170x150" alt=""/>
-        </a>
-      </div>
-      <div class="card-info">
-        <a class="title" href="#">Homer Simpson</a>
-        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-      </div>
-      <div class="card-bottom">
-        <button class="btn btn-block">Follow</button>
-      </div>
-    </div>
+    </div>         
+    <% end %>
   </div>
   <div class="span6">
+    <div class="card">
+     <h3 class="card-heading simple">Review</h3>
+     <div class="card-body">
+      <form>
+        <fieldset>
+          <div>
+          <label>Rating</label>
+          <input type="text" placeholder="Rating">
+          <label>Subject</label>
+          <input type="text" placeholder="Subject">
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </fieldset>
+      </form>
+     </div>
+    </div>
     <div class="card">
       <div class="card-heading image">
         <img src="http://placehold.it/46x46" alt=""/>

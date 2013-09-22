@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(:version => 20130921415144) do
     t.string   "tag"
     t.string   "location"
     t.string   "big_picture_url"
+    t.string   "picture_url"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

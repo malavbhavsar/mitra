@@ -15,3 +15,28 @@
 body {
   padding-top: 60px;
 }
+
+#img_container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+    /* background:url('http://jsfiddle.net/img/initializing.png') no-repeat;
+    width:186px;
+    height:157px;*/
+}
+
+.button {
+    position:absolute;
+    bottom:40px;
+    right:10px;
+    width:100px;
+    height:30px;
+}
+
+.button1 {
+    position:absolute;
+    bottom:75px;
+    right:10px;
+    width:100px;
+    height:30px;
+}
