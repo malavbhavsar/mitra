@@ -23,10 +23,7 @@ class Api::V1::UsersController < Api::ApiController
 
 
     #
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
+    render json: @user
 
   end
 
@@ -34,10 +31,7 @@ class Api::V1::UsersController < Api::ApiController
   def index
     @users = User.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
+    render json: @users
 
   end
 end
