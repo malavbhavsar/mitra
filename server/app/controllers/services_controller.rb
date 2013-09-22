@@ -73,13 +73,18 @@ class ServicesController < InheritedResources::Base
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
 
+    if (!@service.zip_code.nil? and !@service.zip_code.match(/[0-9][0-9][0-9][0-9][0-9]/).nil?)
+      response=conn.get '/REST/v1/Locations', { :CountryRegion => 'US', :postalCode => @service.zip_code, :key =>"AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf" }   # GET /nigiri?name=Maguro
 
-    response=conn.get '/REST/v1/Locations', { :CountryRegion => 'US', :postalCode => @service.zip_code, :key =>"AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf" }   # GET /nigiri?name=Maguro
-    response = ActiveSupport::JSON.decode(response.body)
+      response = ActiveSupport::JSON.decode(response.body)
 
 
-    @latitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][0]
-    @longitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][1]
+      @latitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][0]
+      @longitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][1]
+    else
+      @latitude=-58.995311
+      @longitude=62.171631
+    end
 
     @service.latitude=@latitude
     @service.longitude=@longitude
@@ -119,14 +124,21 @@ class ServicesController < InheritedResources::Base
       @latitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][0]
       @longitude=response['resourceSets'][0]['resources'][0]['point']['coordinates'][1]
 
-
+     # p  @latitude
+      #p  @longitude
       #puts distance response['resourceSets'][0]['resources'][0]['point']['coordinates'],[42.81010818481445, -73.9510726928711]
       #puts distance [46.3625, 15.114444],[46.055556, 14.508333]
       @services = Service.all
+
       p "xxxxxxxxx"
       (0..@services.count-1).each do |i|
 
-        @services[i].distance= distance response['resourceSets'][0]['resources'][0]['point']['coordinates'],[@services[i].latitude, @services[i].longitude]
+
+
+        @services[i].distance= distance [@latitude,@longitude],[@services[i].latitude, @services[i].longitude]
+       # p @services[i].latitude
+       # p @services[i].longitude
+       # p @services[i].distance
       end
 
 
@@ -134,7 +146,6 @@ class ServicesController < InheritedResources::Base
 
       (0..@services.count-1).each do |i|
 
-        p @services[i].distance
       end
     end
       # http://dev.virtualearth.net/Locations?CountryRegion=US&postalCode=12345&key=AoG2_aSmvDSP3ERiCK4ZlKUwGkUNn84Gqafvv_io1ywJZYG5G_WmksnLL6RunKhf
@@ -161,7 +172,7 @@ class ServicesController < InheritedResources::Base
     a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
     c = 2 * Math.asin(Math.sqrt(a))
 
-    rm * c * 0.000621371 # Delta in miles
+    rm * c/ 1609.34 # Delta in miles
   end
 
 end
