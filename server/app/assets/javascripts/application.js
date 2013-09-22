@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+
+
+
+$( document ).ready( function() {
+  $('#seemore').on('click', function(e) {
+      console.log("ffff")
+      e.preventDefault();
+      var $this = $(this);
+      var $collapse = $this.closest('.collapse-group').find('.collapse');
+      $collapse.collapse('toggle');
+  });
+});

@@ -19,14 +19,14 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-          = link_to "Mitra", services_path, :class => "brand"
+          = link_to "Mitra", "/service", :class => "brand"
           %form.navbar-search.pull-left{:action=>"/services", :method => :get, "accept-charset" => "UTF-8", :id=>"service_search", :class=>"service_search"}
 
             %input.input-xxlarge{:type=>"text", :placeholder=>"Search", :id=>"search_name_or_location_contains", :name=>"search[name_or_location_contains]"}
 
           %ul.nav.pull-right
             - if user_signed_in?
-              %li= link_to '@' + current_user.email.sub(/@.*\Z/, ''), user_path(current_user.id)
+              %li= link_to '@' + current_user.email.sub(/@.*\Z/, ''), "/users/"+current_user.id.to_s
               %li= link_to "Sign out", "/users/sign_out", :method => :delete
             - else
               %li= link_to "Sign in", "/users/sign_in"
