@@ -1,1 +1,31 @@
-<%= render :partial => 'show' %>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+        <% @services.each do |service| %>
+
+        <div class="card people">
+          <div class="card-top">
+            <a href="#">
+               <img src="http://placehold.it/170x150" alt=""/>
+            </a>
+          </div>
+          <div class="card-info">
+            <%= link_to service.name, '#', :class=>'title' %>
+            <div class="desc">
+              <%= service.brief_description %>
+              <div class="text-center">
+                <%= service.location %>
+              </div>
+              <div class="text-center">
+                <%= service.fee %>$
+              </div>            
+            </div>
+          </div>
+          <div class="card-bottom">
+            <button class="btn btn-block">Connect</button>
+          </div>
+        </div>
+        <% end %>
+    </div>
+    </div>
+</div>

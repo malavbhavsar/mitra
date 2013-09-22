@@ -19,10 +19,13 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-          = link_to "Mitra", "/", :class => "brand"
+          = link_to "Mitra", services_path, :class => "brand"
+          %form.navbar-search.pull-left{:action=>""}
+            %input.input-xxlarge.search-query{:type=>"text", :placeholder=>"Search"}
+
           %ul.nav.pull-right
             - if user_signed_in?
-              %li= link_to '@' + current_user.email.sub(/@.*\Z/, ''), "/users/edit"
+              %li= link_to '@' + current_user.email.sub(/@.*\Z/, ''), services_by_user_path(current_user)
               %li= link_to "Sign out", "/users/sign_out", :method => :delete
             - else
               %li= link_to "Sign in", "/users/sign_in"
@@ -30,9 +33,6 @@
           - if user_signed_in?
             .nav-collapse.collapse
               %ul.nav.pull-right
-                %li= link_to "Home", "/"
-                %li= link_to "My Reviews", reviews_by_user_path(current_user)
-                %li= link_to "My Services", services_by_user_path(current_user)
                 %li= link_to "Apps", "/oauth/authorized_applications"
     .container
       .row
