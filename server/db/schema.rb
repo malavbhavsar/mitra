@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130921415141) do
+ActiveRecord::Schema.define(:version => 20130921415142) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20130921415141) do
   end
 
   create_table "services", :force => true do |t|
-    t.string   "picture_url"
+    t.string   "picture_url",       :default => "cmu.jpg"
     t.string   "name"
     t.string   "brief_description"
     t.string   "long_description"
@@ -125,8 +125,8 @@ ActiveRecord::Schema.define(:version => 20130921415141) do
     t.boolean  "can_travel"
     t.datetime "time_from"
     t.datetime "time_to"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "users", :force => true do |t|
