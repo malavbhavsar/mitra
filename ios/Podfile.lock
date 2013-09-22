@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (1.0RC1)
   - ISO8601DateFormatter (0.6)
+  - JSONKit (1.5pre)
   - MagicalRecord (2.2)
   - MBProgressHUD (0.8)
   - MessagePack (1.0.0)
   - Reachability (3.0.0)
-  - SDURLCache
   - SSKeychain (0.1.4)
   - SVPullToRefresh (0.4.1)
   - TestFlightSDK (1.3.0-beta.7)
@@ -14,11 +14,11 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (= 1.0RC1)
   - ISO8601DateFormatter (~> 0.6)
+  - JSONKit (~> 1.4)
   - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord.git`)
   - MBProgressHUD (~> 0.5)
   - MessagePack (~> 1.0.0)
   - Reachability (~> 3.0.0)
-  - SDURLCache (from `https://gist.github.com/dflems/5446937/raw/470bcdf915fadf326056fa34ab68c5b13bb5a850/SDURLCache.podspec`)
   - SSKeychain (~> 0.1.4)
   - SVPullToRefresh (~> 0.3)
   - TestFlightSDK (~> 1.1)
@@ -27,17 +27,15 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   MagicalRecord:
     :git: https://github.com/magicalpanda/MagicalRecord.git
-  SDURLCache:
-    :podspec: https://gist.github.com/dflems/5446937/raw/470bcdf915fadf326056fa34ab68c5b13bb5a850/SDURLCache.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: b21c1252d437fd322e7db1caa93b163d76a362cb
   ISO8601DateFormatter: 077ce9d8cfba171bc1ced6cba0d2ae4aefab7619
+  JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
   MagicalRecord: 565156bae4de961860fad200a5c52e21e7933ebe
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   MessagePack: 66a565c0c34ecdd83a84ae090d1a04ef24c88beb
   Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
-  SDURLCache: fb4ffe09fb42726571e7b5b4af308cadaa45bd6b
   SSKeychain: bae692a4354f48691ca3463a121dc8060f781a7d
   SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
   TestFlightSDK: 3af0a385405725e36452a35ef63ba8b3f2ef3ffc

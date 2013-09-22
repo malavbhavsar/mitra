@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A709C628-D0F9-4B8D-84DE-635D7CAAD269</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Bestmix</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DCED85E3-7873-4901-9B5F-3024954C1DDE</key>
+		<string>ssh://github.com/malavbhavsar/mitra.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios/Bestmix.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DCED85E3-7873-4901-9B5F-3024954C1DDE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/malavbhavsar/mitra.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DCED85E3-7873-4901-9B5F-3024954C1DDE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DCED85E3-7873-4901-9B5F-3024954C1DDE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mitra</string>
+		</dict>
+	</array>
+</dict>
+</plist>

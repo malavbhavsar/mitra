@@ -14,6 +14,8 @@ const struct UserRelationships UserRelationships = {
 	.facebookUser = @"facebookUser",
 	.myPosts = @"myPosts",
 	.posts = @"posts",
+	.reviews = @"reviews",
+	.services = @"services",
 };
 
 const struct UserFetchedProperties UserFetchedProperties = {
@@ -138,6 +140,14 @@ const struct UserFetchedProperties UserFetchedProperties = {
 	[self didAccessValueForKey:@"posts"];
 	return result;
 }
+	
+
+@dynamic reviews;
+
+	
+
+@dynamic services;
+
 	
 
 

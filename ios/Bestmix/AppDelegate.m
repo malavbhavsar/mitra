@@ -7,7 +7,7 @@
 #import "CoreData+MagicalRecord.h"
 #import "AuthManager.h"
 #import "ReachabilityManager.h"
-#import "SDURLCache.h"
+//#import "SDURLCache.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +17,7 @@
 
 @synthesize window = _window;
 
-- (void)prepareCache
+/*- (void)prepareCache
 {
     SDURLCache *cache = [[SDURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
                                                       diskCapacity:20 * 1024 * 1024
@@ -26,7 +26,7 @@
     cache.ignoreMemoryOnlyStoragePolicy = YES;
     [NSURLCache setSharedURLCache:cache];
     NSLog(@"cache is being logged to: %@", [SDURLCache defaultCachePath]);
-}
+}*/
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -34,7 +34,7 @@
 
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Bestmix.sqlite"];
 
-    [self prepareCache];
+    //[self prepareCache];
 
     return YES;
 }
