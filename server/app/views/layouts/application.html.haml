@@ -20,8 +20,8 @@
               %span.icon-bar
               %span.icon-bar
           = link_to "Mitra", services_path, :class => "brand"
-          %form.navbar-search.pull-left{:action=>""}
-            %input.input-xxlarge.search-query{:type=>"text", :placeholder=>"Search"}
+          %form.navbar-search.pull-left{:action=>"services"}
+            %input{:type=>"text", :placeholder=>"Search", :id=>"name_or_location_contains"}
 
           %ul.nav.pull-right
             - if user_signed_in?
